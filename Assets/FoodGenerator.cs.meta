@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 0370b20d0112a4c039c08a9fe563a577
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ApplePrefab: {fileID: 5359296854238997841, guid: 5755cdc76ba194b258ed19815a25890b,
+      type: 3}
+  - CherryPrefab: {fileID: 5362108359771539929, guid: 4e2e3888de02a47a6a12806230493830,
+      type: 3}
+  - StrawberryPrefab: {fileID: 8540809163475920082, guid: 9fd14bf7c6ec643b4a4f2435b832dace,
+      type: 3}
+  - WaterMelonPrefab: {fileID: 5729370767673125172, guid: 3cc1a62d0856342e08e38540b471d309,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
