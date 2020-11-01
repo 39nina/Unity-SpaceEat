@@ -23,8 +23,9 @@ public class FoodController : MonoBehaviour
         // 動きが一定以下になったら強制的に止める
         if (foodRig.velocity.magnitude < 0.01)
         {
-        foodRig.velocity = Vector2.zero;
-        foodRig.isKinematic = true;
+            foodRig.velocity = Vector2.zero;
+            if (transform.position.y < 3.5)
+            foodRig.isKinematic = true;
         }
 
         // 新規生成されたオブジェクトがある時の処理
@@ -35,15 +36,20 @@ public class FoodController : MonoBehaviour
             Vector3 cameraPos = Input.mousePosition;
             cameraPos.z = 10.0f;     // カメラz位置が-10.0のため
             Vector3 clickPos = Camera.main.ScreenToWorldPoint(cameraPos);
-            NewFood.transform.position = new Vector3(clickPos.x, 3.7f, 0.0f);
-            // IsKinematicをDynamicにして落ちるようにする
-            Rigidbody2D NewFoodRig = NewFood.GetComponent<Rigidbody2D>();
-            NewFoodRig.bodyType = RigidbodyType2D.Dynamic;
+            if(clickPos.x > -2.45f && clickPos.x < 2.45f)
+            {
+                NewFood.transform.position = new Vector3(clickPos.x, 3.7f, 0.0f);
+
+                // IsKinematicをDynamicにして落ちるようにする
+                Rigidbody2D NewFoodRig = NewFood.GetComponent<Rigidbody2D>();
+                NewFoodRig.bodyType = RigidbodyType2D.Dynamic;
+            }
         }
         else if (NewFood == true && Input.GetMouseButtonUp(0))
         {
             // クリックを離すときに、次の新オブジェクト追加のためセット
             string tagName = NewFood.GetComponent<SpriteRenderer>().sprite.name;
+            NewFood.tag = tagName;
         }
     }
 }

@@ -6,8 +6,8 @@ public class FoodGenerator : MonoBehaviour
 {
     public GameObject[] FoodPrefabs;    // オブジェクトを格納する配列変数
     Rigidbody2D AppleRig, CherryRig, StrawberryRig, WaterMelonRig;
-    public bool isOnce = false;
     int number;   // ランダム情報を入れるための変数
+    float delta = 0;    // Prefab生成時のカウント用
 
     // スタート時にフルーツを生成
     void StartOccurFood(GameObject foodPrefab)
@@ -45,10 +45,15 @@ public class FoodGenerator : MonoBehaviour
     void Update()
     {
         // ゲーム内の全てのPrefabの動きが止まったら、次のPrefabをランダムで生成
-        if (AppleRig.IsSleeping() && CherryRig.IsSleeping() && StrawberryRig.IsSleeping() && WaterMelonRig.IsSleeping() && isOnce == false)
+        GameObject NewFood = GameObject.FindGameObjectWithTag("NewFood");
+        if (!(NewFood))
         {
-            isOnce = true;
-            makeFood();
+            delta += Time.deltaTime;
+            if (AppleRig.IsSleeping() && CherryRig.IsSleeping() && StrawberryRig.IsSleeping() && WaterMelonRig.IsSleeping() && delta > 1)
+            {
+                delta = 0;
+                makeFood();
+            }
         }
     }
 }
