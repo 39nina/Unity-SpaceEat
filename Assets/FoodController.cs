@@ -16,8 +16,11 @@ public class FoodController : MonoBehaviour
 
     void Update()
     {
+        // 動くスピードを減速
+        foodRig.velocity *= 0.98f;
+
         // 動きが一定以下になったら強制的に止める
-        if (foodRig.velocity.magnitude < 0.005)
+        if (foodRig.velocity.magnitude < 0.01)
         {
         foodRig.velocity = Vector2.zero;
         foodRig.isKinematic = true;
