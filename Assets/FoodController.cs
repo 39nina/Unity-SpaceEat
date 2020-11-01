@@ -5,6 +5,7 @@ using UnityEngine;
 public class FoodController : MonoBehaviour
 {
     Rigidbody2D foodRig;
+    GameObject NewFood;
 
     void Start()
     {
@@ -24,6 +25,25 @@ public class FoodController : MonoBehaviour
         {
         foodRig.velocity = Vector2.zero;
         foodRig.isKinematic = true;
+        }
+
+        // 新規生成されたオブジェクトがある時の処理
+        NewFood = GameObject.FindGameObjectWithTag("NewFood");
+        if (NewFood == true && Input.GetMouseButtonDown(0))
+        {
+            // クリックした箇所に移動＆クリック箇所をワールド座標に変換する
+            Vector3 cameraPos = Input.mousePosition;
+            cameraPos.z = 10.0f;     // カメラz位置が-10.0のため
+            Vector3 clickPos = Camera.main.ScreenToWorldPoint(cameraPos);
+            NewFood.transform.position = new Vector3(clickPos.x, 3.7f, 0.0f);
+            // IsKinematicをDynamicにして落ちるようにする
+            Rigidbody2D NewFoodRig = NewFood.GetComponent<Rigidbody2D>();
+            NewFoodRig.bodyType = RigidbodyType2D.Dynamic;
+        }
+        else if (NewFood == true && Input.GetMouseButtonUp(0))
+        {
+            // クリックを離すときに、次の新オブジェクト追加のためセット
+            string tagName = NewFood.GetComponent<SpriteRenderer>().sprite.name;
         }
     }
 }

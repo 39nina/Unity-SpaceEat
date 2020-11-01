@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0370b20d0112a4c039c08a9fe563a577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RandomPrefabs:
+  FoodPrefabs:
   - {fileID: 5359296854238997841, guid: 5755cdc76ba194b258ed19815a25890b, type: 3}
   - {fileID: 5362108359771539929, guid: 4e2e3888de02a47a6a12806230493830, type: 3}
   - {fileID: 8540809163475920082, guid: 9fd14bf7c6ec643b4a4f2435b832dace, type: 3}

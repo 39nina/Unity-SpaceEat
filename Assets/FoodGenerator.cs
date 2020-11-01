@@ -6,7 +6,7 @@ public class FoodGenerator : MonoBehaviour
 {
     public GameObject[] FoodPrefabs;    // オブジェクトを格納する配列変数
     Rigidbody2D AppleRig, CherryRig, StrawberryRig, WaterMelonRig;
-    bool isOnce = false;
+    public bool isOnce = false;
     int number;   // ランダム情報を入れるための変数
 
     // スタート時にフルーツを生成
@@ -21,6 +21,7 @@ public class FoodGenerator : MonoBehaviour
     {
         number = Random.Range(0, FoodPrefabs.Length);
         GameObject newPrefab = Instantiate(FoodPrefabs[number]);
+        newPrefab.tag = "NewFood";
         Rigidbody2D newPrefabRig = newPrefab.GetComponent<Rigidbody2D>();
         newPrefabRig.bodyType = RigidbodyType2D.Kinematic;
     }
