@@ -37,13 +37,17 @@ public class FoodController : MonoBehaviour
         {
             foodRig.bodyType = RigidbodyType2D.Kinematic;
         }
-        else if (foodRig.velocity.magnitude < 0.04 && foodRig.velocity.magnitude >= 0.01)
+        else if (foodRig.velocity.magnitude >= 0.015)    // 空中ではDynamic
+        {
+            foodRig.bodyType = RigidbodyType2D.Dynamic;
+        }
+        else if (foodRig.velocity.magnitude < 0.015 && foodRig.velocity.magnitude >= 0.01)    // 速度が遅くなってきたら静止判定のためにKinematic
         {
             foodRig.velocity = Vector2.zero;
             foodRig.bodyType = RigidbodyType2D.Kinematic;
 
         }
-        else if (foodRig.velocity.magnitude < 0.01)
+        else if (foodRig.velocity.magnitude < 0.01)    // 一時停止したらDynamicに戻す
         {
             foodRig.bodyType = RigidbodyType2D.Dynamic;
         }
