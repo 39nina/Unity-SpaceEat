@@ -8,6 +8,7 @@ public class FoodGenerator : MonoBehaviour
     Rigidbody2D AppleRig, CherryRig, StrawberryRig, WaterMelonRig;
     int number;   // ランダム情報を入れるための変数
     float delta = 0;    // Prefab生成時のカウント用
+    bool isStop;
 
     // スタート時にフルーツを生成
     void StartOccurFood(GameObject foodPrefab)
@@ -17,7 +18,7 @@ public class FoodGenerator : MonoBehaviour
     }
 
     // ランダムにFoodを１つ生成
-    void makeFood()
+    void MakeFood()
     {
         number = Random.Range(0, FoodPrefabs.Length);
         GameObject newPrefab = Instantiate(FoodPrefabs[number]);
@@ -25,21 +26,18 @@ public class FoodGenerator : MonoBehaviour
         Rigidbody2D newPrefabRig = newPrefab.GetComponent<Rigidbody2D>();
         newPrefabRig.bodyType = RigidbodyType2D.Kinematic;
     }
-
+    
     void Start()
     {
+        isStop = false;
+
         // スタート時に８つ自動生成
         for(int i = 0;i < FoodPrefabs.Length; i++)
         {
             StartOccurFood(FoodPrefabs[i]);
             StartOccurFood(FoodPrefabs[i]);
+            //StartOccurFood(FoodPrefabs[i]);
         }
-
-        // cloneされたオブジェクトのRigidbodyを設定
-        AppleRig = GameObject.FindGameObjectWithTag("Apple").GetComponent<Rigidbody2D>();
-        CherryRig = GameObject.FindGameObjectWithTag("Cherry").GetComponent<Rigidbody2D>();
-        StrawberryRig = GameObject.FindGameObjectWithTag("Strawberry").GetComponent<Rigidbody2D>();
-        WaterMelonRig = GameObject.FindGameObjectWithTag("WaterMelon").GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -49,10 +47,43 @@ public class FoodGenerator : MonoBehaviour
         if (!(NewFood))
         {
             delta += Time.deltaTime;
-            if (AppleRig.IsSleeping() && CherryRig.IsSleeping() && StrawberryRig.IsSleeping() && WaterMelonRig.IsSleeping() && delta > 1)
+
+            if (GameObject.FindGameObjectWithTag("Apple"))
+            {
+                AppleRig = GameObject.FindGameObjectWithTag("Apple").GetComponent<Rigidbody2D>();
+                if (AppleRig.IsSleeping())
+                {
+                    isStop = true;
+                }
+            }
+            if (GameObject.FindGameObjectWithTag("Cherry"))
+            {
+                CherryRig = GameObject.FindGameObjectWithTag("Cherry").GetComponent<Rigidbody2D>();
+                if (CherryRig.IsSleeping())
+                {
+                    isStop = true;
+                }
+            }
+            if (GameObject.FindGameObjectWithTag("Strawberry"))
+            {
+                StrawberryRig = GameObject.FindGameObjectWithTag("Strawberry").GetComponent<Rigidbody2D>();
+                if (StrawberryRig.IsSleeping())
+                {
+                    isStop = true;
+                }
+            }
+            if (GameObject.FindGameObjectWithTag("WaterMelon"))
+            {
+                WaterMelonRig = GameObject.FindGameObjectWithTag("WaterMelon").GetComponent<Rigidbody2D>();
+                if (WaterMelonRig.IsSleeping())
+                {
+                    isStop = true;
+                }
+            }
+            if(isStop == true && delta > 1)
             {
                 delta = 0;
-                makeFood();
+                MakeFood();
             }
         }
     }
