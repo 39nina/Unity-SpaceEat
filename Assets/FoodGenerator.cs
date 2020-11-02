@@ -10,7 +10,8 @@ public class FoodGenerator : MonoBehaviour
     float delta = 0;    // Prefab生成時のカウント用
     bool isStop;
     int score;
-    GameObject director;
+    GameObject director;    // GameDirecter
+    int foodCount;     // ゲーム内のFoodの数を数えるための変数
 
     // スタート時にフルーツを生成
     void StartOccurFood(GameObject foodPrefab)
@@ -24,13 +25,9 @@ public class FoodGenerator : MonoBehaviour
         isStop = false;
         director = GameObject.Find("GameDirector");
 
-        // スタート時に８つ自動生成
-        for(int i = 0;i < 4; i++)
-        {
-            StartOccurFood(FoodPrefabs[i]);
-            StartOccurFood(FoodPrefabs[i]);
-            StartOccurFood(FoodPrefabs[i]);
-        }
+        //// スタート時に20こ自動生成
+        director.GetComponent<GameDirector>().AddFoods();
+        director.GetComponent<GameDirector>().AddFoods();
     }
 
     void Update()
@@ -78,6 +75,13 @@ public class FoodGenerator : MonoBehaviour
                 delta = 0;
                 director.GetComponent<GameDirector>().AddFood();
             }
+        }
+
+        // ゲーム内のFoodの数が8を切ったら10個増やす
+        foodCount = GameObject.FindGameObjectsWithTag("Avocado").Length + GameObject.FindGameObjectsWithTag("Cherry").Length + GameObject.FindGameObjectsWithTag("Strawberry").Length + GameObject.FindGameObjectsWithTag("WaterMelon").Length + GameObject.FindGameObjectsWithTag("Shrimp").Length + GameObject.FindGameObjectsWithTag("Eggs").Length + GameObject.FindGameObjectsWithTag("Cheese").Length + GameObject.FindGameObjectsWithTag("Pretzel").Length;
+        if(foodCount < 9)
+        {
+            director.GetComponent<GameDirector>().AddFoods();
         }
     }
 }

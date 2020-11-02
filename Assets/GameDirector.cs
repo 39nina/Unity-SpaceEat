@@ -19,26 +19,64 @@ public class GameDirector : MonoBehaviour
     // スコアによってランダムにFoodを１つ生成
     public void AddFood()
     {
-        if(score < 1000)
+        if(score < 2000)
         {
             number = Random.Range(0, 4);
         }
-        else if (score >= 1000 && score < 2000)
+        else if (score >= 2000 && score < 3000)
         {
             number = Random.Range(0, 5);
         }
-        else if (score >= 2000 && score < 3000)
+        else if (score >= 3000 && score < 4000)
         {
             number = Random.Range(0, 6);
         }
-        else if (score >= 3000)
+        else if (score >= 4000 && score <= 6000)
         {
             number = Random.Range(0, 8);
         }
-        GameObject newPrefab = Instantiate(foodPrefabs[number]);
-        newPrefab.tag = "NewFood";
-        Rigidbody2D newPrefabRig = newPrefab.GetComponent<Rigidbody2D>();
-        newPrefabRig.bodyType = RigidbodyType2D.Kinematic;
+        // 6000点でゲーム終了
+        if (score < 6000)
+        {
+            GameObject newPrefab = Instantiate(foodPrefabs[number]);
+            newPrefab.tag = "NewFood";
+            Rigidbody2D newPrefabRig = newPrefab.GetComponent<Rigidbody2D>();
+            newPrefabRig.bodyType = RigidbodyType2D.Kinematic;
+        }
+    }
+
+    // スコアによってランダムにFoodを10こ生成
+    public void AddFoods()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            if (score < 1000)
+            {
+                number = Random.Range(0, 4);
+            }
+            else if (score >= 1000 && score < 2000)
+            {
+                number = Random.Range(0, 5);
+            }
+            else if (score >= 2000 && score < 3000)
+            {
+                number = Random.Range(0, 6);
+            }
+            else if (score >= 3000 && score <= 5000)
+            {
+                number = Random.Range(0, 8);
+            }
+
+            // 6000点でゲーム終了
+            if (score < 6000)
+            {
+                GameObject newPrefab = Instantiate(foodPrefabs[number]);
+                float rnd = Random.Range(-2.25f, 2.25f);
+                newPrefab.transform.position = new Vector3(rnd, 3.7f, 0);
+                // 下方向に力を少し加えてIsKinematicにならないようにする
+                newPrefab.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -300.0f));
+            }
+        }
     }
 
     void Start()
