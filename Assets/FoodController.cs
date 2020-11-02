@@ -32,17 +32,20 @@ public class FoodController : MonoBehaviour
 
     void Update()
     {
-        // 動くスピードを減速
-        foodRig.velocity *= 0.98f;
-
-        // 動きが一定以下になったら強制的に止める＆衝突判定
-        if (foodRig.velocity.magnitude < 0.05)
+        // 動きが一定以下になったら強制的に止める＆一定落ち着いたらDynamicに戻す
+        if (this.gameObject.tag == "NewFood")
+        {
+            foodRig.bodyType = RigidbodyType2D.Kinematic;
+        }
+        else if (foodRig.velocity.magnitude < 0.04 && foodRig.velocity.magnitude >= 0.01)
         {
             foodRig.velocity = Vector2.zero;
-            if (transform.position.y < 3.0)
-            {
-                foodRig.isKinematic = true;
-            }
+            foodRig.bodyType = RigidbodyType2D.Kinematic;
+
+        }
+        else if (foodRig.velocity.magnitude < 0.01)
+        {
+            foodRig.bodyType = RigidbodyType2D.Dynamic;
         }
 
         // 新規生成されたオブジェクトがある時の処理
@@ -57,9 +60,11 @@ public class FoodController : MonoBehaviour
             {
                 NewFood.transform.position = new Vector3(clickPos.x, 3.7f, 0.0f);
 
-                // IsKinematicをDynamicにして落ちるようにする
+                // IsKinematicをDynamicにする落ちるようにする
                 Rigidbody2D NewFoodRig = NewFood.GetComponent<Rigidbody2D>();
                 NewFoodRig.bodyType = RigidbodyType2D.Dynamic;
+                // 下方向に力を少し加えてIsKinematicにならないようにする
+                NewFoodRig.AddForce(new Vector2(0, -300.0f));
             }
             else if (clickPos.x < -2.35f)
             {
@@ -80,7 +85,7 @@ public class FoodController : MonoBehaviour
         }
         else if (NewFood == true && Input.GetMouseButtonUp(0))
         {
-            // クリックを離すときに、次の新オブジェクト追加のためセット
+            // クリックを離すときに、tagをセット
             string tagName = NewFood.GetComponent<SpriteRenderer>().sprite.name;
             NewFood.tag = tagName;
         }

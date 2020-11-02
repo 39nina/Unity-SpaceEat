@@ -14,7 +14,7 @@ public class FoodGenerator : MonoBehaviour
     void StartOccurFood(GameObject foodPrefab)
     {
         GameObject startPrefab = Instantiate(foodPrefab) as GameObject;
-        startPrefab.transform.position = new Vector2(0, 4);
+        startPrefab.transform.position = new Vector2(0, 3.5f);
     }
 
     // ランダムにFoodを１つ生成
@@ -36,14 +36,14 @@ public class FoodGenerator : MonoBehaviour
         {
             StartOccurFood(FoodPrefabs[i]);
             StartOccurFood(FoodPrefabs[i]);
-            //StartOccurFood(FoodPrefabs[i]);
+            StartOccurFood(FoodPrefabs[i]);
         }
     }
 
     void Update()
     {
         // ゲーム内の全てのPrefabの動きが止まったら、次のPrefabをランダムで生成
-        GameObject NewFood = GameObject.FindGameObjectWithTag("NewFood");
+            GameObject NewFood = GameObject.FindGameObjectWithTag("NewFood");
         if (!(NewFood))
         {
             delta += Time.deltaTime;
@@ -51,7 +51,7 @@ public class FoodGenerator : MonoBehaviour
             if (GameObject.FindGameObjectWithTag("Apple"))
             {
                 AppleRig = GameObject.FindGameObjectWithTag("Apple").GetComponent<Rigidbody2D>();
-                if (AppleRig.IsSleeping())
+                if (AppleRig.velocity.magnitude < 0.01)
                 {
                     isStop = true;
                 }
@@ -59,7 +59,7 @@ public class FoodGenerator : MonoBehaviour
             if (GameObject.FindGameObjectWithTag("Cherry"))
             {
                 CherryRig = GameObject.FindGameObjectWithTag("Cherry").GetComponent<Rigidbody2D>();
-                if (CherryRig.IsSleeping())
+                if (CherryRig.velocity.magnitude < 0.01)
                 {
                     isStop = true;
                 }
@@ -67,7 +67,7 @@ public class FoodGenerator : MonoBehaviour
             if (GameObject.FindGameObjectWithTag("Strawberry"))
             {
                 StrawberryRig = GameObject.FindGameObjectWithTag("Strawberry").GetComponent<Rigidbody2D>();
-                if (StrawberryRig.IsSleeping())
+                if (StrawberryRig.velocity.magnitude < 0.01)
                 {
                     isStop = true;
                 }
@@ -75,7 +75,7 @@ public class FoodGenerator : MonoBehaviour
             if (GameObject.FindGameObjectWithTag("WaterMelon"))
             {
                 WaterMelonRig = GameObject.FindGameObjectWithTag("WaterMelon").GetComponent<Rigidbody2D>();
-                if (WaterMelonRig.IsSleeping())
+                if (WaterMelonRig.velocity.magnitude < 0.01)
                 {
                     isStop = true;
                 }
