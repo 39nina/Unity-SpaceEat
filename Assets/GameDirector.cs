@@ -24,15 +24,15 @@ public class GameDirector : MonoBehaviour
     {
         if(score < 2000)
         {
-            number = Random.Range(0, 4);
+            number = Random.Range(0, 5);
         }
         else if (score >= 2000 && score < 3000)
         {
-            number = Random.Range(0, 5);
+            number = Random.Range(0, 6);
         }
         else if (score >= 3000 && score < 4000)
         {
-            number = Random.Range(0, 6);
+            number = Random.Range(0, 7);
         }
         else if (score >= 4000 && score <= 6000)
         {
@@ -55,15 +55,15 @@ public class GameDirector : MonoBehaviour
         {
             if (score < 1000)
             {
-                number = Random.Range(0, 4);
+                number = Random.Range(0, 5);
             }
             else if (score >= 1000 && score < 2000)
             {
-                number = Random.Range(0, 5);
+                number = Random.Range(0, 6);
             }
             else if (score >= 2000 && score < 3000)
             {
-                number = Random.Range(0, 6);
+                number = Random.Range(0, 7);
             }
             else if (score >= 3000 && score <= 5000)
             {

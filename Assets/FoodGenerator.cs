@@ -77,9 +77,9 @@ public class FoodGenerator : MonoBehaviour
             }
         }
 
-        // ゲーム内のFoodの数が8を切ったら10個増やす
+        // ゲーム内のFoodの数が6を切ったら10個増やす
         foodCount = GameObject.FindGameObjectsWithTag("Avocado").Length + GameObject.FindGameObjectsWithTag("Cherry").Length + GameObject.FindGameObjectsWithTag("Strawberry").Length + GameObject.FindGameObjectsWithTag("WaterMelon").Length + GameObject.FindGameObjectsWithTag("Shrimp").Length + GameObject.FindGameObjectsWithTag("Eggs").Length + GameObject.FindGameObjectsWithTag("Cheese").Length + GameObject.FindGameObjectsWithTag("Pretzel").Length;
-        if(foodCount < 9)
+        if(foodCount < 7)
         {
             director.GetComponent<GameDirector>().AddFoods();
         }

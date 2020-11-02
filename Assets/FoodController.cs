@@ -36,6 +36,12 @@ public class FoodController : MonoBehaviour
 
     void Update()
     {
+        // シーン外に落ちたものは削除
+        if (this.gameObject.transform.position.y <= -10)
+        {
+            Destroy(this.gameObject);
+        }
+
         // 動きが一定以下になったら強制的に止める＆一定落ち着いたらDynamicに戻す
         if (this.gameObject.tag == "NewFood")
         {
