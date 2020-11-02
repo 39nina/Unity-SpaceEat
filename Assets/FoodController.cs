@@ -7,23 +7,27 @@ public class FoodController : MonoBehaviour
     Rigidbody2D foodRig;
     GameObject NewFood;
     public GameObject opponent;
+    GameObject directer;
 
     // 一定速度以下の状態で、他の同Foodと接触すると消える
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (foodRig)
         {
-            if (collision.gameObject.tag == this.gameObject.tag && (foodRig.velocity.magnitude < 0.07))
+            if (collision.gameObject.tag == this.gameObject.tag && (foodRig.velocity.magnitude < 0.1))
             {
                 opponent = collision.gameObject;
                 Destroy(opponent);
                 Destroy(this.gameObject);
+                directer.GetComponent<GameDirector>().GetPoint();
             }
         }
     }
 
     void Start()
     {
+        directer = GameObject.Find("GameDirector");
+
         foodRig = this.GetComponent<Rigidbody2D>();
         float xPos = Random.Range(-700.0f, 700.0f);
         Vector2 startForce = new Vector2(xPos, 0);
