@@ -5,10 +5,11 @@ using UnityEngine;
 public class FoodGenerator : MonoBehaviour
 {
     public GameObject[] FoodPrefabs;    // オブジェクトを格納する配列変数
-    Rigidbody2D AppleRig, CherryRig, StrawberryRig, WaterMelonRig;
+    Rigidbody2D AvocadoRig, CherryRig, StrawberryRig, WaterMelonRig;
     int number;   // ランダム情報を入れるための変数
     float delta = 0;    // Prefab生成時のカウント用
     bool isStop;
+    int score;
 
     // スタート時にフルーツを生成
     void StartOccurFood(GameObject foodPrefab)
@@ -20,7 +21,22 @@ public class FoodGenerator : MonoBehaviour
     // ランダムにFoodを１つ生成
     void MakeFood()
     {
-        number = Random.Range(0, FoodPrefabs.Length);
+        if(score < 2000)
+        {
+            number = Random.Range(0, 3);
+        }
+        else if (score >= 2000 && score < 3000)
+        {
+            number = Random.Range(0, 4);
+        }
+        else if (score >= 3000 && score < 4000)
+        {
+            number = Random.Range(0, 5);
+        }
+        else if (score >= 4000)
+        {
+            number = Random.Range(0, 7);
+        }
         GameObject newPrefab = Instantiate(FoodPrefabs[number]);
         newPrefab.tag = "NewFood";
         Rigidbody2D newPrefabRig = newPrefab.GetComponent<Rigidbody2D>();
@@ -32,7 +48,7 @@ public class FoodGenerator : MonoBehaviour
         isStop = false;
 
         // スタート時に８つ自動生成
-        for(int i = 0;i < FoodPrefabs.Length; i++)
+        for(int i = 0;i < 4; i++)
         {
             StartOccurFood(FoodPrefabs[i]);
             StartOccurFood(FoodPrefabs[i]);
@@ -48,10 +64,10 @@ public class FoodGenerator : MonoBehaviour
         {
             delta += Time.deltaTime;
 
-            if (GameObject.FindGameObjectWithTag("Apple"))
+            if (GameObject.FindGameObjectWithTag("Avocado"))
             {
-                AppleRig = GameObject.FindGameObjectWithTag("Apple").GetComponent<Rigidbody2D>();
-                if (AppleRig.velocity.magnitude < 0.01)
+                AvocadoRig = GameObject.FindGameObjectWithTag("Avocado").GetComponent<Rigidbody2D>();
+                if (AvocadoRig.velocity.magnitude < 0.01)
                 {
                     isStop = true;
                 }

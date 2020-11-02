@@ -9,6 +9,12 @@ TagManager:
   - Strawberry
   - WaterMelon
   - NewFood
+  - Avocado
+  - ChidkenLeg
+  - Eggs
+  - Cheese
+  - Shrimp
+  - Pretzel
   layers:
   - Default
   - TransparentFX
