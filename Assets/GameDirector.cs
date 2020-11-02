@@ -12,6 +12,7 @@ public class GameDirector : MonoBehaviour
     GameObject generator;
     GameObject[] foodPrefabs;
     GameObject clearImage;    // クリア時に表示する画面
+    GameObject gameOverImage;    // ゲームオーバー時に表示する画面
 
     public void GetPoint()
     {
@@ -90,7 +91,13 @@ public class GameDirector : MonoBehaviour
         }
     }
 
-    // clear画像を押すとリトライ
+    // 速度が一定以下で線を超えたときにclearImageを表示する
+    public void gameover()
+    {
+        
+    }
+
+    // retryボタンを押すとリトライ
     public void retry()
     {
         SceneManager.LoadScene("GameScene");
@@ -103,6 +110,8 @@ public class GameDirector : MonoBehaviour
         foodPrefabs = generator.GetComponent<FoodGenerator>().FoodPrefabs;
         clearImage = GameObject.Find("ClearButton");
         clearImage.SetActive(false);
+        gameOverImage = GameObject.Find("GameOverButton");
+        gameOverImage.SetActive(false);
     }
 
     void Update()
