@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameDirector : MonoBehaviour
 {
@@ -89,12 +90,18 @@ public class GameDirector : MonoBehaviour
         }
     }
 
+    // clear画像を押すとリトライ
+    public void retry()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
+
     void Start()
     {
         scoreText = GameObject.Find("Score");
         generator = GameObject.Find("FoodGenerator");
         foodPrefabs = generator.GetComponent<FoodGenerator>().FoodPrefabs;
-        clearImage = GameObject.Find("clearImage");
+        clearImage = GameObject.Find("ClearButton");
         clearImage.SetActive(false);
     }
 
