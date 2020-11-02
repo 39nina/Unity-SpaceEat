@@ -10,6 +10,7 @@ public class GameDirector : MonoBehaviour
     int number;   // Foodを１つ追加する際のランダム情報を入れるための変数
     GameObject generator;
     GameObject[] foodPrefabs;
+    GameObject clearImage;    // クリア時に表示する画面
 
     public void GetPoint()
     {
@@ -79,15 +80,27 @@ public class GameDirector : MonoBehaviour
         }
     }
 
+    // scoreが6,000点を超えたときにclearImageを表示する
+    public void clear()
+    {
+        if (score >= 6000)
+        {
+            clearImage.SetActive(true);
+        }
+    }
+
     void Start()
     {
         scoreText = GameObject.Find("Score");
         generator = GameObject.Find("FoodGenerator");
-        foodPrefabs = generator.GetComponent<FoodGenerator>().FoodPrefabs; 
+        foodPrefabs = generator.GetComponent<FoodGenerator>().FoodPrefabs;
+        clearImage = GameObject.Find("clearImage");
+        clearImage.SetActive(false);
     }
 
     void Update()
     {
         scoreText.GetComponent<Text>().text = "Score：" + score.ToString();
+        clear();
     }
 }
