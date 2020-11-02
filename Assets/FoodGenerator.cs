@@ -10,6 +10,7 @@ public class FoodGenerator : MonoBehaviour
     float delta = 0;    // Prefab生成時のカウント用
     bool isStop;
     int score;
+    GameObject director;
 
     // スタート時にフルーツを生成
     void StartOccurFood(GameObject foodPrefab)
@@ -17,35 +18,11 @@ public class FoodGenerator : MonoBehaviour
         GameObject startPrefab = Instantiate(foodPrefab) as GameObject;
         startPrefab.transform.position = new Vector2(0, 3.5f);
     }
-
-    // ランダムにFoodを１つ生成
-    void MakeFood()
-    {
-        if(score < 2000)
-        {
-            number = Random.Range(0, 3);
-        }
-        else if (score >= 2000 && score < 3000)
-        {
-            number = Random.Range(0, 4);
-        }
-        else if (score >= 3000 && score < 4000)
-        {
-            number = Random.Range(0, 5);
-        }
-        else if (score >= 4000)
-        {
-            number = Random.Range(0, 7);
-        }
-        GameObject newPrefab = Instantiate(FoodPrefabs[number]);
-        newPrefab.tag = "NewFood";
-        Rigidbody2D newPrefabRig = newPrefab.GetComponent<Rigidbody2D>();
-        newPrefabRig.bodyType = RigidbodyType2D.Kinematic;
-    }
     
     void Start()
     {
         isStop = false;
+        director = GameObject.Find("GameDirector");
 
         // スタート時に８つ自動生成
         for(int i = 0;i < 4; i++)
@@ -99,7 +76,7 @@ public class FoodGenerator : MonoBehaviour
             if(isStop == true && delta > 1)
             {
                 delta = 0;
-                MakeFood();
+                director.GetComponent<GameDirector>().AddFood();
             }
         }
     }
