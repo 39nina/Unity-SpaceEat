@@ -13,6 +13,10 @@ public class FoodGenerator : MonoBehaviour
     GameObject director;    // GameDirecter
     int foodCount;     // ゲーム内のFoodの数を数えるための変数
 
+    // SE
+    AudioSource audioSource;
+    [SerializeField] AudioClip FoodsMakeSE;
+
     // スタート時にフルーツを生成
     void StartOccurFood(GameObject foodPrefab)
     {
@@ -24,10 +28,12 @@ public class FoodGenerator : MonoBehaviour
     {
         isStop = false;
         director = GameObject.Find("GameDirector");
+        audioSource = GetComponent<AudioSource>();
 
         //// スタート時に20こ自動生成
         director.GetComponent<GameDirector>().AddFoods();
         director.GetComponent<GameDirector>().AddFoods();
+        audioSource.PlayOneShot(FoodsMakeSE);
     }
 
     void Update()
@@ -82,6 +88,7 @@ public class FoodGenerator : MonoBehaviour
         if(foodCount < 7)
         {
             director.GetComponent<GameDirector>().AddFoods();
+            audioSource.PlayOneShot(FoodsMakeSE);
         }
     }
 }

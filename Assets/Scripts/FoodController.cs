@@ -10,14 +10,9 @@ public class FoodController : MonoBehaviour
     GameObject directer;
     [SerializeField] GameObject BurstEffect;
 
-    // SE
-    AudioSource audioSource;
-    [SerializeField] AudioClip FoodEraseSE;
-
     void Start()
     {
         directer = GameObject.Find("GameDirector");
-        audioSource = GetComponent<AudioSource>();
 
         foodRig = this.GetComponent<Rigidbody2D>();
         float xPos = Random.Range(-700.0f, 700.0f);
