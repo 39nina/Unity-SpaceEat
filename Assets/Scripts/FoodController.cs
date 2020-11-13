@@ -8,25 +8,16 @@ public class FoodController : MonoBehaviour
     GameObject NewFood;
     public GameObject opponent;
     GameObject directer;
+    [SerializeField] GameObject BurstEffect;
 
-    // 一定速度以下の状態で、他の同Foodと接触すると消える
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (foodRig)
-        {
-            if (collision.gameObject.tag == this.gameObject.tag && (foodRig.velocity.magnitude < 0.1))
-            {
-                opponent = collision.gameObject;
-                Destroy(opponent);
-                Destroy(this.gameObject);
-                directer.GetComponent<GameDirector>().GetPoint();
-            }
-        }
-    }
+    // SE
+    AudioSource audioSource;
+    [SerializeField] AudioClip FoodEraseSE;
 
     void Start()
     {
         directer = GameObject.Find("GameDirector");
+        audioSource = GetComponent<AudioSource>();
 
         foodRig = this.GetComponent<Rigidbody2D>();
         float xPos = Random.Range(-700.0f, 700.0f);
@@ -102,6 +93,22 @@ public class FoodController : MonoBehaviour
             // クリックを離すときに、tagをセット
             string tagName = NewFood.GetComponent<SpriteRenderer>().sprite.name;
             NewFood.tag = tagName;
+        }
+    }
+
+    // 一定速度以下の状態で、他の同Foodと接触すると消える
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (foodRig)
+        {
+            if (collision.gameObject.tag == this.gameObject.tag && (foodRig.velocity.magnitude < 0.1))
+            {
+                Instantiate(BurstEffect);
+                opponent = collision.gameObject;
+                Destroy(opponent);
+                Destroy(this.gameObject);
+                directer.GetComponent<GameDirector>().GetPoint();
+            }
         }
     }
 }

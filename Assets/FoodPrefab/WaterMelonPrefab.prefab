@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3974301036552767184}
   - component: {fileID: 2786430720953814944}
   - component: {fileID: 5364104121271089311}
+  - component: {fileID: -6950016024011334925}
   m_Layer: 0
   m_Name: WaterMelonPrefab
   m_TagString: WaterMelon
@@ -132,20 +133,23 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -0.48942083, y: -0.25138187}
       - {x: -0.38025406, y: -0.3401611}
-      - {x: -0.4404142, y: -0.39149252}
-      - {x: -0.43970263, y: -0.43730497}
-      - {x: -0.25026566, y: -0.44055808}
-      - {x: -0.24908157, y: -0.49887872}
-      - {x: 0.07613362, y: -0.50212514}
-      - {x: 0.20808452, y: -0.40140536}
-      - {x: 0.360198, y: -0.25031567}
+      - {x: -0.3496797, y: -0.35081854}
+      - {x: -0.30829412, y: -0.37785834}
+      - {x: -0.23149301, y: -0.39049754}
+      - {x: -0.17711972, y: -0.43317422}
+      - {x: 0.06361867, y: -0.4395496}
+      - {x: 0.18931177, y: -0.37011746}
+      - {x: 0.31326637, y: -0.24718696}
+      - {x: 0.3727131, y: -0.17522508}
+      - {x: 0.41338724, y: -0.1345511}
+      - {x: 0.44780362, y: -0.1063921}
       - {x: 0.4894207, y: -0.053071022}
       - {x: 0.49579564, y: 0.37224913}
       - {x: 0.4352832, y: 0.43178058}
       - {x: 0.32642743, y: 0.428967}
       - {x: -0.043117434, y: 0.2372241}
       - {x: -0.17699756, y: 0.18113528}
-      - {x: -0.19855969, y: 0.12345474}
+      - {x: -0.21733233, y: 0.15161371}
       - {x: -0.42293105, y: 0.114581585}
       - {x: -0.4250749, y: 0.058919907}
       - {x: -0.49260816, y: 0.058288574}
@@ -162,3 +166,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opponent: {fileID: 0}
+  BurstEffect: {fileID: 9167272681503749372, guid: 58e7743078d7b4ab28b0a0bd12797fc4,
+    type: 3}
+  FoodEraseSE: {fileID: 0}
+--- !u!82 &-6950016024011334925
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729370767673125172}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.17
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

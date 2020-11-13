@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 583891105532920752}
   - component: {fileID: 1916964273577981897}
   - component: {fileID: -2518489756801450128}
+  - component: {fileID: -2694988175341499322}
   m_Layer: 0
   m_Name: AvocadoPrefab
   m_TagString: Avocado
@@ -132,17 +133,17 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 0.072027594, y: 0.44501972}
       - {x: -0.17797214, y: 0.30464578}
-      - {x: -0.4323746, y: 0.07704902}
-      - {x: -0.4859544, y: -0.06346057}
-      - {x: -0.49012277, y: -0.29872277}
-      - {x: -0.38290873, y: -0.41385993}
-      - {x: -0.28957424, y: -0.49517372}
-      - {x: 0.077539384, y: -0.50392723}
-      - {x: 0.15802649, y: -0.48421228}
-      - {x: 0.35718703, y: -0.23416439}
-      - {x: 0.5055092, y: 0.07220094}
-      - {x: 0.5082709, y: 0.31302062}
-      - {x: 0.3511844, y: 0.4420845}
+      - {x: -0.4323746, y: 0.05646118}
+      - {x: -0.4413472, y: -0.053166457}
+      - {x: -0.44208422, y: -0.3021542}
+      - {x: -0.3554582, y: -0.38984066}
+      - {x: -0.24839829, y: -0.50546765}
+      - {x: 0.060382687, y: -0.50049603}
+      - {x: 0.12714449, y: -0.45333052}
+      - {x: 0.3228738, y: -0.19298853}
+      - {x: 0.44717655, y: 0.07220094}
+      - {x: 0.44650704, y: 0.30958897}
+      - {x: 0.30657706, y: 0.44551572}
 --- !u!114 &-2518489756801450128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +157,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opponent: {fileID: 0}
+  BurstEffect: {fileID: 9167272681503749372, guid: 58e7743078d7b4ab28b0a0bd12797fc4,
+    type: 3}
+  FoodEraseSE: {fileID: 0}
+--- !u!82 &-2694988175341499322
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3687027624144407636}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

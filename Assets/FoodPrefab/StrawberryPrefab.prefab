@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8540809163475920083}
   - component: {fileID: 8540809163475920086}
   - component: {fileID: 2844307554491955867}
+  - component: {fileID: -4415310953629652994}
   m_Layer: 0
   m_Name: StrawberryPrefab
   m_TagString: Strawberry
@@ -139,12 +140,12 @@ PolygonCollider2D:
       - {x: -0.36322993, y: 0.105209894}
       - {x: -0.4357562, y: -0.016906086}
       - {x: -0.42689267, y: -0.29941648}
-      - {x: -0.43989098, y: -0.43974072}
+      - {x: -0.37942103, y: -0.37322384}
       - {x: -0.30974525, y: -0.44219583}
-      - {x: -0.31911728, y: -0.5003536}
-      - {x: 0.07139793, y: -0.5006734}
-      - {x: 0.07626158, y: -0.44872352}
-      - {x: 0.19721451, y: -0.43858963}
+      - {x: -0.30399984, y: -0.43988377}
+      - {x: 0.06535101, y: -0.43415657}
+      - {x: 0.07021466, y: -0.38220665}
+      - {x: 0.19721451, y: -0.37207276}
       - {x: 0.20115878, y: -0.33639368}
       - {x: 0.29308856, y: -0.26443434}
       - {x: 0.36263183, y: -0.1509141}
@@ -173,3 +174,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opponent: {fileID: 0}
+  BurstEffect: {fileID: 9167272681503749372, guid: 58e7743078d7b4ab28b0a0bd12797fc4,
+    type: 3}
+  FoodEraseSE: {fileID: 0}
+--- !u!82 &-4415310953629652994
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8540809163475920082}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.17
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
