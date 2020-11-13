@@ -167,7 +167,6 @@ MonoBehaviour:
   opponent: {fileID: 0}
   BurstEffect: {fileID: 9167272681503749372, guid: 58e7743078d7b4ab28b0a0bd12797fc4,
     type: 3}
-  FoodEraseSE: {fileID: 0}
 --- !u!82 &-1345485458054093760
 AudioSource:
   m_ObjectHideFlags: 0

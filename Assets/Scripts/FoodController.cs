@@ -96,7 +96,7 @@ public class FoodController : MonoBehaviour
     {
         if (foodRig)
         {
-            if (collision.gameObject.tag == this.gameObject.tag && (foodRig.velocity.magnitude < 0.1))
+            if (collision.gameObject.tag == this.gameObject.tag && (foodRig.velocity.magnitude < 0.2))
             {
                 Instantiate(BurstEffect);
                 opponent = collision.gameObject;
@@ -104,6 +104,14 @@ public class FoodController : MonoBehaviour
                 Destroy(this.gameObject);
                 directer.GetComponent<GameDirector>().GetPoint();
             }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if(foodRig.velocity.magnitude > 8)
+        {
+            foodRig.velocity = new Vector2(0,0);
         }
     }
 }

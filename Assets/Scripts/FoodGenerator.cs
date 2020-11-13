@@ -85,7 +85,7 @@ public class FoodGenerator : MonoBehaviour
 
         // ゲーム内のFoodの数が6を切ったら10個増やす
         foodCount = GameObject.FindGameObjectsWithTag("Avocado").Length + GameObject.FindGameObjectsWithTag("Cherry").Length + GameObject.FindGameObjectsWithTag("Strawberry").Length + GameObject.FindGameObjectsWithTag("WaterMelon").Length + GameObject.FindGameObjectsWithTag("Shrimp").Length + GameObject.FindGameObjectsWithTag("Eggs").Length + GameObject.FindGameObjectsWithTag("Cheese").Length + GameObject.FindGameObjectsWithTag("Pretzel").Length;
-        if(foodCount < 7)
+        if(foodCount < 7 && score < 5000)
         {
             director.GetComponent<GameDirector>().AddFoods();
             audioSource.PlayOneShot(FoodsMakeSE);

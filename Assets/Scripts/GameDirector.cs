@@ -82,7 +82,7 @@ public class GameDirector : MonoBehaviour
         }
     }
 
-    // scoreが6,000点を超えたときにclearImageを表示する
+    // scoreが5,000点を超えたときにclearImageを表示する
     public void clear()
     {
         if (score >= 5000)
