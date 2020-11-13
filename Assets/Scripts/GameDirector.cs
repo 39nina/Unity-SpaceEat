@@ -22,24 +22,24 @@ public class GameDirector : MonoBehaviour
     // スコアによってランダムにFoodを１つ生成
     public void AddFood()
     {
-        if(score < 2000)
+        if(score < 1500)
         {
             number = Random.Range(0, 5);
         }
-        else if (score >= 2000 && score < 3000)
+        else if (score >= 1500 && score < 2400)
         {
             number = Random.Range(0, 6);
         }
-        else if (score >= 3000 && score < 4000)
+        else if (score >= 2400 && score < 3600)
         {
             number = Random.Range(0, 7);
         }
-        else if (score >= 4000 && score <= 6000)
+        else if (score >= 3600 && score <= 5000)
         {
             number = Random.Range(0, 8);
         }
-        // 6000点でゲーム終了
-        if (score < 6000)
+        // 5000点でゲーム終了
+        if (score < 5000)
         {
             GameObject newPrefab = Instantiate(foodPrefabs[number]);
             newPrefab.tag = "NewFood";
@@ -53,25 +53,25 @@ public class GameDirector : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            if (score < 1000)
+            if (score < 1500)
             {
                 number = Random.Range(0, 5);
             }
-            else if (score >= 1000 && score < 2000)
+            else if (score >= 1500 && score < 2400)
             {
                 number = Random.Range(0, 6);
             }
-            else if (score >= 2000 && score < 3000)
+            else if (score >= 2400 && score < 3600)
             {
                 number = Random.Range(0, 7);
             }
-            else if (score >= 3000 && score <= 5000)
+            else if (score >= 3600 && score <= 5000)
             {
                 number = Random.Range(0, 8);
             }
 
-            // 6000点でゲーム終了
-            if (score < 6000)
+            // 5000点でゲーム終了
+            if (score < 5000)
             {
                 GameObject newPrefab = Instantiate(foodPrefabs[number]);
                 float rnd = Random.Range(-2.25f, 2.25f);
@@ -85,7 +85,7 @@ public class GameDirector : MonoBehaviour
     // scoreが6,000点を超えたときにclearImageを表示する
     public void clear()
     {
-        if (score >= 6000)
+        if (score >= 5000)
         {
             clearImage.SetActive(true);
         }
