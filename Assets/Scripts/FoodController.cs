@@ -98,7 +98,10 @@ public class FoodController : MonoBehaviour
         {
             if (collision.gameObject.tag == this.gameObject.tag && (foodRig.velocity.magnitude < 0.2))
             {
-                Instantiate(BurstEffect);
+                // 接触物同士の少し上にエフェクトが発生するように設定
+                Vector3 effectPos = Vector3.Lerp(this.transform.position, collision.gameObject.transform.position,0.5f);
+                effectPos.y += 1.5f;
+                Instantiate(BurstEffect, effectPos, Quaternion.identity);
                 opponent = collision.gameObject;
                 Destroy(opponent);
                 Destroy(this.gameObject);
