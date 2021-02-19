@@ -17,4 +17,4 @@
 
 ## ゲームの遊び方
   - iPhone上の画面タッチで操作
-  - こちら（https://youtu.be/viXAMGV3MVA）にプレイ動画公開
+  - プレイ動画はこちら：https://youtu.be/viXAMGV3MVA
